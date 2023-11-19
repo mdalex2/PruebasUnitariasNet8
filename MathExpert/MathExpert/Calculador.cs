@@ -12,5 +12,9 @@
             return (num % 2) != 0;
         }
 
+        public double SumarNrosDoubles(double n1, double n2)
+        {
+            return n1 + n2;
+        }
     }
 }
