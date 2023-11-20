@@ -137,19 +137,20 @@ namespace MathExpertNUnitTest
             Calculador calculador = new Calculador();
             List<int> listaEsperadaImpares = new() { 3,5,7}; //rango de 3 a 8
             List<int> listaResultado = calculador.ObtenerRangoImpares(3,8);
-            Assert.That(listaResultado,Is.EquivalentTo(listaEsperadaImpares)); //si las dos listas son iguales
-            Assert.AreEqual(listaEsperadaImpares, listaResultado); // si las dos listas son iguales
-            Assert.Contains(7, listaResultado);
-            Assert.That(listaResultado,Does.Contain(7)); //si contiene # 7
-            Assert.That(listaResultado,Is.Not.Empty); //si no está vacía
-            Assert.That(listaResultado.Count,Is.EqualTo(3));
-            Assert.That(listaResultado,Has.No.Member(6)); //si no contiene el nro 6
-            Assert.That(listaResultado,Is.Ordered);
-            //Assert.That(listaResultado,Is.Ordered.Descending); //verfica si viene orden desc
-            Assert.That(listaResultado,Is.Ordered);
-            Assert.That(listaResultado,Is.Unique); //si todos los elementos son unicos (no se repiten)
-            
-
+            Assert.Multiple(() => //verificar todos los asserts de pruebas al mismo tiempo
+            {
+                Assert.That(listaResultado, Is.EquivalentTo(listaEsperadaImpares)); //si las dos listas son iguales
+                Assert.AreEqual(listaEsperadaImpares, listaResultado); // si las dos listas son iguales
+                Assert.Contains(7, listaResultado);
+                Assert.That(listaResultado, Does.Contain(7)); //si contiene # 7
+                Assert.That(listaResultado, Is.Not.Empty); //si no está vacía
+                Assert.That(listaResultado.Count, Is.EqualTo(3));
+                Assert.That(listaResultado, Has.No.Member(6)); //si no contiene el nro 6
+                Assert.That(listaResultado, Is.Ordered);
+                //Assert.That(listaResultado, Is.Ordered.Descending); //verfica si viene orden desc
+                Assert.That(listaResultado, Is.Ordered);
+                Assert.That(listaResultado, Is.Unique); //si todos los elementos son unicos (no se repiten)
+            }); 
         }
         #endregion TestListaInt
     }
