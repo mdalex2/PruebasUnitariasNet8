@@ -8,9 +8,15 @@ namespace MathExpert
 {
     public class Cliente
     {
+        public string saludo { get; set; }
         public string SaludoCliente(string nombreCliente, string apellidoCliente)
         {
-            return $"Hola, {nombreCliente} {apellidoCliente}";
+            if (String.IsNullOrWhiteSpace(nombreCliente))
+            {
+                throw new ArgumentException("Parametro nombre requerido");
+            }
+            saludo = $"Hola, {nombreCliente} {apellidoCliente}";
+            return saludo;
         }
     }
 }

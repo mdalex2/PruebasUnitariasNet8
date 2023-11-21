@@ -36,5 +36,18 @@ namespace MathExpertNUnitTest
             Assert.That(saludo, Does.Match("Hola, [A-Z]{1}[a-z]+ [A-z]{1}[a-z]+"));
 
         }
+
+        #region PruebasUnitariaExcepciones
+        [Test]
+        public void SaludoCliente_NoPasarNombre_LanzarExcepcion()
+        {
+            var exceptionDetalle = Assert.Throws<ArgumentException>(() => cliente.SaludoCliente("", "Piedra"));
+            Assert.AreEqual("Parametro nombre requerido", exceptionDetalle.Message);
+
+            //esta linea es equivalente a las dos anteriores
+            Assert.That(() => cliente.SaludoCliente("", "Piedra"),
+                                Throws.ArgumentException.With.Message.EqualTo("Parametro nombre requerido"));
+        }
+        #endregion PruebasUnitariaExcepciones
     }
 }
