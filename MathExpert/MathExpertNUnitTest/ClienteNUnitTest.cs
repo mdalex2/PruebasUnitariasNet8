@@ -14,13 +14,14 @@ namespace MathExpertNUnitTest
         //inicializar la clase a usar de manera globlal
         //para usarla en todas las pruebas
         private Cliente cliente;
+
         [SetUp] 
         public void SetUp() 
         { 
             cliente = new Cliente();
         }
 
-
+        #region TestStrings
         [Test]
         public void SaludoCliente_IngresarNombreApellido_ObtenerSaludoNombreCompleto()
         {
@@ -37,6 +38,8 @@ namespace MathExpertNUnitTest
 
         }
 
+        #endregion TestStrings
+
         #region PruebasUnitariaExcepciones
         [Test]
         public void SaludoCliente_NoPasarNombre_LanzarExcepcion()
@@ -49,5 +52,30 @@ namespace MathExpertNUnitTest
                                 Throws.ArgumentException.With.Message.EqualTo("Parametro nombre requerido"));
         }
         #endregion PruebasUnitariaExcepciones
+
+        #region TestConHerencia
+
+        [Test]
+        public void DetalleCliente_TotalCompra_MenorQue100_ObtenerClienteBasico()
+        {
+            cliente.TotalCompras = 10;
+            var resultado = cliente.DetalleCliente();
+            Assert.That(resultado, Is.TypeOf<ClienteBasico>());
+
+
+        }
+        
+        [Test]
+        public void DetalleCliente_TotalCompra_MayorQue100_ObtenerClienteBasico()
+        {
+            cliente.TotalCompras = 110;
+            var resultado = cliente.DetalleCliente();
+            Assert.That(resultado, Is.TypeOf<ClientePlatino>());
+
+
+        }
+
+
+        #endregion TesConHerencia
     }
 }
