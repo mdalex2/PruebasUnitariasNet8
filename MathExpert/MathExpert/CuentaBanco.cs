@@ -29,10 +29,10 @@ namespace MathExpert
             if (monto <= Balance)
             {
                 Balance -= monto;
-                _log.Mensaje($"Retiro de {monto} realizado");
-                return true;
+                _log.LogBaseDatos($"Monto de {monto} realizado");
+                return _log.LogBalanceDespuesRetiro(Balance);
             }
-            return false;
+            return _log.LogBalanceDespuesRetiro(Balance-monto);
         }
 
         public double ObtenerBalance()

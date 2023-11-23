@@ -9,5 +9,8 @@ namespace MathExpert
     public interface ILogRegistro
     {
         void Mensaje(string mensaje);
+        bool LogBaseDatos(string mensaje);
+        bool LogBalanceDespuesRetiro(double balanceDespuesRetiro);
+        string MensajeRetornaString(string mensaje);
     }
 }
