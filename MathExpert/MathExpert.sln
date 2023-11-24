@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathExpertMSTest", "MathExp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathExpertNUnitTest", "MathExpertNUnitTest\MathExpertNUnitTest.csproj", "{0FCE70D4-1C41-4CED-B2CC-1388EB34C33B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathExpertXUnitTest", "MathExpertXUnitTest\MathExpertXUnitTest.csproj", "{D8945F6D-8520-454F-9200-DB1DE3C96D18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0FCE70D4-1C41-4CED-B2CC-1388EB34C33B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FCE70D4-1C41-4CED-B2CC-1388EB34C33B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FCE70D4-1C41-4CED-B2CC-1388EB34C33B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8945F6D-8520-454F-9200-DB1DE3C96D18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8945F6D-8520-454F-9200-DB1DE3C96D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8945F6D-8520-454F-9200-DB1DE3C96D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8945F6D-8520-454F-9200-DB1DE3C96D18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
