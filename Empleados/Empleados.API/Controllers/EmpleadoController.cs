@@ -77,6 +77,11 @@ namespace Empleados.API.Controllers
                 return BadRequest("Nombre del Empleado ya existe!");
             }
 
+            if (empleado.CompaniaId == 0)
+            {
+                return BadRequest("Compañía Id es obligatorio");
+            }
+
             await _repo.Agregar(empleado);
             await _repo.Guardar();
 
