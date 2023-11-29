@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,8 +72,8 @@ namespace Empleados.Tests
             var empleadoDb = await empleadoRepositorio.ObtenerPrimero();
 
             //tests
-            Assert.AreEqual(empleadoTest1.Id, empleadoDb.Id);
-            Assert.AreEqual(empleadoTest1.Apellidos, empleadoDb.Apellidos);
+            ClassicAssert.AreEqual(empleadoTest1.Id, empleadoDb.Id);
+            ClassicAssert.AreEqual(empleadoTest1.Apellidos, empleadoDb.Apellidos);
 
         }
 
@@ -118,7 +119,7 @@ namespace Empleados.Tests
             var empleadosDb = resultado.Value as IEnumerable<Empleado>;
 
             CollectionAssert.AreEqual(empleados,empleadosDb);
-            Assert.AreEqual(empleados.Count(),empleadosDb.Count());
+            ClassicAssert.AreEqual(empleados.Count(),empleadosDb.Count());
         }
 
         [Test]
@@ -137,7 +138,7 @@ namespace Empleados.Tests
             var resultado = actionResult.Result as OkObjectResult;
             var empleadoDb = resultado.Value as Empleado;
 
-            Assert.AreEqual(empleadoTest1, empleadoDb);
+            ClassicAssert.AreEqual(empleadoTest1, empleadoDb);
         }
         
         
@@ -156,7 +157,7 @@ namespace Empleados.Tests
             var actionResult = await empleadoController.GetEmpleado(-1);
             var resultado = actionResult.Result as OkObjectResult;
 
-            Assert.IsNull(resultado);
+            ClassicAssert.IsNull(resultado);
         }
 
 
@@ -176,7 +177,7 @@ namespace Empleados.Tests
             var resultado = actionResult.Result as CreatedAtRouteResult;
             var empleadoDb = resultado.Value as Empleado;
 
-            Assert.AreEqual(empleadoTest1,empleadoDb);
+            ClassicAssert.AreEqual(empleadoTest1,empleadoDb);
         }
         
         
@@ -196,7 +197,7 @@ namespace Empleados.Tests
             var resultado = actionResult.Result as CreatedAtRouteResult;
 
             //assert
-            Assert.IsNull(resultado);
+            ClassicAssert.IsNull(resultado);
         }
     }
 }
