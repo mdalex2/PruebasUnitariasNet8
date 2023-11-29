@@ -1,6 +1,7 @@
 ﻿using MathExpert;
 using Moq;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +44,7 @@ namespace MathExpertNUnitTest
 
             CuentaBanco cuentaBancoMock = new CuentaBanco(logMok.Object); //se le pasa un objeto simulando el logger
             var resultado = cuentaBancoMock.Deposito(100);
-            Assert.IsTrue(resultado);
+            ClassicAssert.IsTrue(resultado);
             Assert.That(cuentaBancoMock.ObtenerBalance, Is.EqualTo(100));
         }
 
@@ -58,7 +59,7 @@ namespace MathExpertNUnitTest
             CuentaBanco cuentaBancoMock = new CuentaBanco(logMok.Object); //se le pasa un objeto simulando el logger
             cuentaBancoMock.Deposito(200);
             var resultado = cuentaBancoMock.Retiro(100);
-            Assert.IsTrue(resultado);
+            ClassicAssert.IsTrue(resultado);
             Assert.That(cuentaBancoMock.ObtenerBalance, Is.EqualTo(100));
         }
         
@@ -75,7 +76,7 @@ namespace MathExpertNUnitTest
             CuentaBanco cuentaBancoMock = new CuentaBanco(logMok.Object); //se le pasa un objeto simulando el logger
             cuentaBancoMock.Deposito(balance);
             var resultado = cuentaBancoMock.Retiro(retiro);
-            Assert.IsTrue(resultado);
+            ClassicAssert.IsTrue(resultado);
         }
         
         
@@ -92,7 +93,7 @@ namespace MathExpertNUnitTest
             CuentaBanco cuentaBancoMock = new CuentaBanco(logMok.Object); //se le pasa un objeto simulando el logger
             cuentaBancoMock.Deposito(balance);
             var resultado = cuentaBancoMock.Retiro(retiro);
-            Assert.IsFalse(resultado);
+            ClassicAssert.IsFalse(resultado);
         }
         
         

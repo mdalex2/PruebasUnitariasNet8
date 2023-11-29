@@ -1,5 +1,6 @@
 ﻿using MathExpert;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace MathExpertNUnitTest
         {
             string saludo = cliente.SaludoCliente("Alexi", "Mendoza");
 
-            Assert.AreEqual(saludo,"Hola, Alexi Mendoza");
+            ClassicAssert.AreEqual(saludo,"Hola, Alexi Mendoza");
             Assert.That(saludo, Is.EqualTo("Hola, Alexi Mendoza"));
             Assert.That(saludo, Does.Contain(","));
             Assert.That(saludo, Does.StartWith("Hola,"));
@@ -45,7 +46,7 @@ namespace MathExpertNUnitTest
         public void SaludoCliente_NoPasarNombre_LanzarExcepcion()
         {
             var exceptionDetalle = Assert.Throws<ArgumentException>(() => cliente.SaludoCliente("", "Piedra"));
-            Assert.AreEqual("Parametro nombre requerido", exceptionDetalle.Message);
+            ClassicAssert.AreEqual("Parametro nombre requerido", exceptionDetalle.Message);
 
             //esta linea es equivalente a las dos anteriores
             Assert.That(() => cliente.SaludoCliente("", "Piedra"),

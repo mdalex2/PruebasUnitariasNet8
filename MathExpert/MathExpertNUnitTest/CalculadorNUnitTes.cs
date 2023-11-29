@@ -1,5 +1,6 @@
 ﻿using MathExpert;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace MathExpertNUnitTest
 
 
             //assert (verificación resultados)
-            Assert.AreEqual(11, resultado);
+            ClassicAssert.AreEqual(11, resultado);
         }
 
         [Test]
@@ -39,7 +40,7 @@ namespace MathExpertNUnitTest
 
 
             //assert (verificación resultados)
-            Assert.IsFalse(resultado);
+            ClassicAssert.IsFalse(resultado);
             Assert.That(resultado, Is.EqualTo(false)); 
         }
         
@@ -58,7 +59,7 @@ namespace MathExpertNUnitTest
 
 
             //assert (verificación resultados)
-            Assert.IsTrue(resultado);
+            ClassicAssert.IsTrue(resultado);
             Assert.That(resultado, Is.EqualTo(true)); 
         }
         
@@ -103,7 +104,7 @@ namespace MathExpertNUnitTest
 
 
             //assert (verificación resultados)
-            Assert.AreEqual(15.4,resultado,1); //el 1 es para tener un rango adicional de tolerancia de 1 pto de diferencia en la prueba basada en el resultadoSuma
+            ClassicAssert.AreEqual(15.4,resultado,1); //el 1 es para tener un rango adicional de tolerancia de 1 pto de diferencia en la prueba basada en el resultadoSuma
         }
         
         
@@ -122,7 +123,7 @@ namespace MathExpertNUnitTest
 
 
             //assert (verificación resultados)
-            Assert.AreEqual(valorEsperado,resultadoSuma,0.0001);
+            ClassicAssert.AreEqual(valorEsperado,resultadoSuma,0.0001);
         }
 
 
@@ -140,8 +141,8 @@ namespace MathExpertNUnitTest
             Assert.Multiple(() => //verificar todos los asserts de pruebas al mismo tiempo
             {
                 Assert.That(listaResultado, Is.EquivalentTo(listaEsperadaImpares)); //si las dos listas son iguales
-                Assert.AreEqual(listaEsperadaImpares, listaResultado); // si las dos listas son iguales
-                Assert.Contains(7, listaResultado);
+                ClassicAssert.AreEqual(listaEsperadaImpares, listaResultado); // si las dos listas son iguales
+                ClassicAssert.Contains(7, listaResultado);
                 Assert.That(listaResultado, Does.Contain(7)); //si contiene # 7
                 Assert.That(listaResultado, Is.Not.Empty); //si no está vacía
                 Assert.That(listaResultado.Count, Is.EqualTo(3));
